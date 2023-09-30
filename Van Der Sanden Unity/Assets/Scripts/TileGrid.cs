@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TileGrid : MonoBehaviour
@@ -13,25 +14,46 @@ public class TileGrid : MonoBehaviour
         rows = GetComponentsInChildren<TileRow>();
         cells = GetComponentsInChildren<TileCell>();
 
-        //for (int i = 0; i < cells.Length; i++)
-        //{
-          //  cells[i].coordinates = new Vector2Int(i % width, i / width);
-        //}
+        for (int i = 0; i < cells.Length; i++)
+        {
+          cells[i].coordinates = new Vector2Int(i % width, i / width);
+        }
     }
     private void Start()
     {
-        for(int y =0; y<rows.Length; y++)
+        for (int y = 0; y < rows.Length; y++)
         {
-            for(int x =0; x < rows[y].cells.Length; x++)
+            for (int x = 0; x < rows[y].cells.Length; x++)
             {
-                rows[y].cells[x].coordinates = new Vector2Int(x,y);
+                rows[y].cells[x].coordinates = new Vector2Int(x, y);
             }
         }
     }
-    /*
-    
+    public TileCell GetRandomEmptyCell()
+    {
+        int index = Random.Range(0, cells.Length);
+        int startingIndex = index;
 
-    
+        while (cells[index].occupied)
+        {
+            index++;
+
+            if (index >= cells.Length)
+            {
+                index = 0;
+            }
+            if (index == startingIndex)
+            {
+                return null;
+            }
+        }
+
+        return cells[index];
+    }
+
+
+
+
 
     public TileCell GetCell(Vector2Int coordinates)
     {
@@ -40,9 +62,12 @@ public class TileGrid : MonoBehaviour
 
     public TileCell GetCell(int x, int y)
     {
-        if (x >= 0 && x < width && y >= 0 && y < height) {
+        if (x >= 0 && x < width && y >= 0 && y < height)
+        {
             return rows[y].cells[x];
-        } else {
+        }
+        else
+        {
             return null;
         }
     }
@@ -56,26 +81,8 @@ public class TileGrid : MonoBehaviour
         return GetCell(coordinates);
     }
 
-    public TileCell GetRandomEmptyCell()
-    {
-        int index = Random.Range(0, cells.Length);
-        int startingIndex = index;
 
-        while (cells[index].occupied)
-        {
-            index++;
 
-            if (index >= cells.Length) {
-                index = 0;
-            }
 
-            // all cells are occupied
-            if (index == startingIndex) {
-                return null;
-            }
-        }
 
-        return cells[index];
-    }
-    */
 }
