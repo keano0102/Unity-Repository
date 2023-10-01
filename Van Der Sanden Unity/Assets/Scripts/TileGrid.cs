@@ -11,8 +11,8 @@ public class TileGrid : MonoBehaviour
 
     private void Awake()
     {
-        rows = GetComponentsInChildren<TileRow>();
-        cells = GetComponentsInChildren<TileCell>();
+       // rows = GetComponentsInChildren<TileRow>();
+       // cells = GetComponentsInChildren<TileCell>();
 
         for (int i = 0; i < cells.Length; i++)
         {
