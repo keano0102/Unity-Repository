@@ -23,12 +23,12 @@ public class TileBoard : MonoBehaviour
     {
         Tile tile = Instantiate(tilePrefab, grid.transform);
         tile.SetState(tileStates[0], 2);
-        //tile.Spawn(grid.GetRandomEmptyCell());
-        //tiles.Add(tile);
+        tile.Spawn(grid.GetRandomEmptyCell());
+        tiles.Add(tile);
 
     }
-    //public GameManager gameManager;
-    /*
+    public GameManager gameManager;
+    
     
 
     
@@ -36,8 +36,8 @@ public class TileBoard : MonoBehaviour
     private bool waiting;
 
     
-    */
-    /*public void ClearBoard()
+    
+    public void ClearBoard()
      {
          foreach (var cell in grid.cells) {
              cell.tile = null;
@@ -126,7 +126,7 @@ public class TileBoard : MonoBehaviour
          return a.state == b.state && !b.locked;
      }
 
-     /*private void MergeTiles(Tile a, Tile b)
+     private void MergeTiles(Tile a, Tile b)
      {
          tiles.Remove(a);
          a.Merge(b.cell);
@@ -202,5 +202,5 @@ public class TileBoard : MonoBehaviour
          }
 
          return true;
-     }*/
+     }
 }

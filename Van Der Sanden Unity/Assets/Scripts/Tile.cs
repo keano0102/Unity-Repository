@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
         text.color = state.textColor;
         text.text = state.number.ToString();
     }
-    /*
+    
     
     
 
@@ -102,5 +102,5 @@ public class Tile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    */
+    
 }
