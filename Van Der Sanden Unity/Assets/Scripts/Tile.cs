@@ -11,13 +11,13 @@ public class Tile : MonoBehaviour
     private Image background;
     private TextMeshProUGUI text;
 
+    
 
     private void Awake()
     {
         background = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
-
     public void SetState(TileState state, int number)
     {
         this.state = state;
@@ -27,6 +27,12 @@ public class Tile : MonoBehaviour
         text.color = state.textColor;
         text.text = state.number.ToString();
     }
+    /*
+    
+    
+
+
+    
     public void Spawn(TileCell cell)
     {
         if (this.cell != null)
@@ -96,5 +102,5 @@ public class Tile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    */
 }
